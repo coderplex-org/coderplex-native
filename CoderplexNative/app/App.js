@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import MobileWebView from './WebView/MobileWebView';
+import WebWrapper from './components/WebWrapper/WebWrapper';
 
 export default class App extends Component<{}> {
   render() {
-    return <MobileWebView />;
+    return <WebWrapper />;
   }
 }
