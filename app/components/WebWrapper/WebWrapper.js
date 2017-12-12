@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, WebView, Dimensions } from 'react-native';
+import { View, WebView, Dimensions, StatusBar } from 'react-native';
 import { baseURL } from '../../config';
 import { primaryColor } from '../../constants';
 import { Loading } from '../common';
@@ -26,6 +26,7 @@ class WebWrapper extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor={primaryColor} barStyle="light-content" />
         {this.state.loading &&
           <View
             style={{
