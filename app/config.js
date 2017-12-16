@@ -1,1 +1,1 @@
-export const baseURL = 'https://coderplex.org';
+export const baseURL = 'https://coderplex.org/';
