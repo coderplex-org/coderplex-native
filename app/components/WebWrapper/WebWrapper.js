@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
+  ImageBackground,
   WebView,
   Dimensions,
   StatusBar,
@@ -9,11 +10,8 @@ import {
   BackHandler
 } from 'react-native';
 import { baseURL } from '../../config';
-import { primaryColor } from '../../constants';
-import { Loading } from '../common';
-
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+import { primaryColor, deviceHeight, deviceWidth } from '../../constants';
+import Splash from './Splash';
 
 class WebWrapper extends Component {
   constructor(props) {
@@ -69,17 +67,8 @@ class WebWrapper extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor={primaryColor} barStyle="light-content" />
-        {this.state.loading &&
-          <View
-            style={{
-              width: deviceWidth,
-              height: deviceHeight,
-              backgroundColor: primaryColor
-            }}
-          >
-            <Loading />
-          </View>}
+        <StatusBar backgroundColor={primaryColor} barStyle="dark-content" />
+        {this.state.loading && <Splash />}
         <WebView
           ref={webview => {
             this.myWebView = webview;
@@ -91,8 +80,8 @@ class WebWrapper extends Component {
           javaScriptEnabled={true}
           domStorageEnabled={true}
           scalesPageToFit={true}
-          onLoadStart={() => this.onLoadStart.bind(this)}
-          onLoad={() => this.onLoadFinish.bind(this)}
+          onLoadStart={() => this.onLoadStart()}
+          onLoad={() => this.onLoadFinish()}
           renderError={this._onRenderError}
           onError={this._onError}
           onShouldStartLoadWithRequest={this._onShouldStartLoadWithRequest}
