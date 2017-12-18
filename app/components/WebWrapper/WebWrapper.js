@@ -47,10 +47,7 @@ class WebWrapper extends Component {
 
   _onRenderError(e) {
     console.log('onRenderError', e);
-  }
-
-  _onError(e) {
-    console.log('onError', e);
+    // TODO: create error screen
   }
 
   _onShouldStartLoadWithRequest() {
@@ -83,7 +80,6 @@ class WebWrapper extends Component {
           onLoadStart={() => this.onLoadStart()}
           onLoad={() => this.onLoadFinish()}
           renderError={this._onRenderError}
-          onError={this._onError}
           onShouldStartLoadWithRequest={this._onShouldStartLoadWithRequest}
           onNavigationStateChange={this._onNavigationStateChange.bind(this)}
         />
